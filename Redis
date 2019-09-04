@@ -1,0 +1,99 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "486b56bc-dec0-4b7b-8eef-f551f8311495": {
+                "size": {
+                    "width": 250,
+                    "height": 200
+                },
+                "position": {
+                    "x": 370,
+                    "y": 40
+                },
+                "z": 0,
+                "embeds": [
+                    "51592334-29be-446e-a1ee-df4f7a6d3c1d"
+                ]
+            },
+            "51592334-29be-446e-a1ee-df4f7a6d3c1d": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 460,
+                    "y": 110
+                },
+                "z": 1,
+                "parent": "486b56bc-dec0-4b7b-8eef-f551f8311495",
+                "embeds": [],
+                "iscontainedinside": [
+                    "486b56bc-dec0-4b7b-8eef-f551f8311495",
+                    "486b56bc-dec0-4b7b-8eef-f551f8311495",
+                    "486b56bc-dec0-4b7b-8eef-f551f8311495",
+                    "486b56bc-dec0-4b7b-8eef-f551f8311495",
+                    "486b56bc-dec0-4b7b-8eef-f551f8311495",
+                    "486b56bc-dec0-4b7b-8eef-f551f8311495",
+                    "486b56bc-dec0-4b7b-8eef-f551f8311495"
+                ]
+            }
+        }
+    },
+    "Resources": {
+        "cachegroup": {
+            "Type": "AWS::ElastiCache::SubnetGroup",
+            "Properties": {
+                "CacheSubnetGroupName": "cachegroup1",
+                "Description": "cachegroup1",
+                "SubnetIds": [
+                    {
+                        "Ref": "dbnet1id"
+                    },
+                    {
+                        "Ref": "dbnet2id"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "486b56bc-dec0-4b7b-8eef-f551f8311495"
+                }
+            }
+        },
+        "cachecluster": {
+            "Type": "AWS::ElastiCache::CacheCluster",
+            "Properties": {
+                "Engine": "redis",
+                "ClusterName": "cachecluster",
+                "NumCacheNodes": "1",
+                "Port": "6379",
+                "CacheNodeType": "cache.t2.micro",
+                "VpcSecurityGroupIds": [
+                    {
+                        "Ref": "dbgroupid"
+                    }
+                ],
+                "CacheSubnetGroupName": {
+                    "Ref": "cachegroup"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "51592334-29be-446e-a1ee-df4f7a6d3c1d"
+                }
+            }
+        }
+    },
+    "Parameters": {
+        "dbnet1id": {
+            "Type": "String"
+        },
+        "dbnet2id": {
+            "Type": "String"
+        },
+        "dbgroupid": {
+            "Type": "String"
+        }
+    }
+}
