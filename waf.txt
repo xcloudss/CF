@@ -1,0 +1,182 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "d801cb9b-db6d-41dc-b15e-4e7a20131660": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 440,
+                    "y": 110
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "f140a23e-5e29-493c-b132-2f4b3962dfad"
+                ]
+            },
+            "f140a23e-5e29-493c-b132-2f4b3962dfad": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 340,
+                    "y": 80
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "12ba648d-d852-421e-a5db-7f2dce3c9a89"
+                ]
+            },
+            "12ba648d-d852-421e-a5db-7f2dce3c9a89": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": 70
+                },
+                "z": 0,
+                "embeds": []
+            }
+        }
+    },
+    "Resources": {
+        "webacl": {
+            "Type": "AWS::WAF::WebACL",
+            "Properties": {
+                "DefaultAction": {
+                    "Type": "BLOCK"
+                },
+                "MetricName": "webacl",
+                "Name": "webacl",
+                "Rules": [
+                    {
+                        "Action": {
+                            "Type": "ALLOW"
+                        },
+                        "Priority": "1",
+                        "RuleId": {
+                            "Ref": "rule1"
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d801cb9b-db6d-41dc-b15e-4e7a20131660"
+                }
+            }
+        },
+        "rule1": {
+            "Type": "AWS::WAF::Rule",
+            "Properties": {
+                "MetricName": "rule1",
+                "Name": "rule1",
+                "Predicates": [
+                    {
+                        "DataId": {
+                            "Ref": "sql1"
+                        },
+                        "Negated": "false",
+                        "Type": "SqlInjectionMatch"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "f140a23e-5e29-493c-b132-2f4b3962dfad"
+                }
+            }
+        },
+        "sql1": {
+            "Type": "AWS::WAF::SqlInjectionMatchSet",
+            "Properties": {
+                "Name": "sql1",
+                "SqlInjectionMatchTuples": [
+                    {
+                        "FieldToMatch": {
+                            "Type": "BODY"
+                        },
+                        "TextTransformation": "HTML_ENTITY_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "BODY"
+                        },
+                        "TextTransformation": "URL_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "HEADER",
+                            "Data": "Authorization"
+                        },
+                        "TextTransformation": "HTML_ENTITY_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "HEADER",
+                            "Data": "Authorization"
+                        },
+                        "TextTransformation": "URL_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "HEADER",
+                            "Data": "Cookie"
+                        },
+                        "TextTransformation": "HTML_ENTITY_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "HEADER",
+                            "Data": "Cookie"
+                        },
+                        "TextTransformation": "URL_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "QUERY_STRING"
+                        },
+                        "TextTransformation": "HTML_ENTITY_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "QUERY_STRING"
+                        },
+                        "TextTransformation": "HTML_ENTITY_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "URI"
+                        },
+                        "TextTransformation": "URL_DECODE"
+                    },
+                    {
+                        "FieldToMatch": {
+                            "Type": "URI"
+                        },
+                        "TextTransformation": "URL_DECODE"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "12ba648d-d852-421e-a5db-7f2dce3c9a89"
+                }
+            }
+        }
+    },
+    "Outputs": {
+        "webaclid": {
+            "Value": {
+                "Ref": "webacl"
+            }
+        }
+    }
+}
