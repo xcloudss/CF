@@ -1,0 +1,158 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "b9ede51f-f70f-444c-996e-5ae68fc8b8b2": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 350,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "e18adfac-f72b-4098-8e6a-4c01a8a65eeb": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 260,
+                    "y": 80
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "7dfa8138-1ea9-4b3c-9bfd-4a398d99f279": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 450,
+                    "y": 80
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "ae994819-b3fa-4d84-b153-066ce9488f1c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 460,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            }
+        }
+    },
+    "Resources": {
+        "docdbgroup": {
+            "Type": "AWS::DocDB::DBSubnetGroup",
+            "Properties": {
+                "DBSubnetGroupName": "docdbgroup",
+                "DBSubnetGroupDescription": "docdbgroup",
+                "SubnetIds": [
+                    {
+                        "Ref": "dbnet1id"
+                    },
+                    {
+                        "Ref": "dbnet2id"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "docdbgroup"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "b9ede51f-f70f-444c-996e-5ae68fc8b8b2"
+                }
+            }
+        },
+        "dbcluster": {
+            "Type": "AWS::DocDB::DBCluster",
+            "Properties": {
+                "Port": "27017",
+                "DBSubnetGroupName": {
+                    "Ref": "docdbgroup"
+                },
+                "MasterUsername": {
+                    "Ref": "dbuser"
+                },
+                "MasterUserPassword": {
+                    "Ref": "dbpasswd"
+                },
+                "VpcSecurityGroupIds": [
+                    {
+                        "Ref": "dbgroupid"
+                    }
+                ],
+                "DBClusterIdentifier": "dbcluster"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e18adfac-f72b-4098-8e6a-4c01a8a65eeb"
+                }
+            }
+        },
+        "dbinstance1": {
+            "Type": "AWS::DocDB::DBInstance",
+            "Properties": {
+                "DBInstanceClass": "db.r4.large",
+                "DBClusterIdentifier": {
+                    "Ref": "dbcluster"
+                },
+                "DBInstanceIdentifier": "dbinstance1"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "7dfa8138-1ea9-4b3c-9bfd-4a398d99f279"
+                }
+            }
+        },
+        "dbinstance2": {
+            "Type": "AWS::DocDB::DBInstance",
+            "Properties": {
+                "DBInstanceClass": "db.r4.large",
+                "DBClusterIdentifier": {
+                    "Ref": "dbcluster"
+                },
+                "DBInstanceIdentifier": "dbinstance2"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ae994819-b3fa-4d84-b153-066ce9488f1c"
+                }
+            }
+        }
+    },
+    "Parameters": {
+        "dbgroupid": {
+            "Type": "String"
+        },
+        "dbnet1id": {
+            "Type": "String"
+        },
+        "dbnet2id": {
+            "Type": "String"
+        },
+        "dbuser": {
+            "Type": "String",
+            "Default": "dbadmin"
+        },
+        "dbpasswd": {
+            "Type": "String",
+            "Default": "Skills53."
+        }
+    }
+}
