@@ -1,0 +1,86 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "eb3eb730-9dbd-4e55-bb10-badbc7fee9a8": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 360,
+                    "y": 90
+                },
+                "z": 0,
+                "embeds": []
+            }
+        }
+    },
+    "Resources": {
+        "cloudfront": {
+            "Type": "AWS::CloudFront::Distribution",
+            "Properties": {
+                "DistributionConfig": {
+               		"WebACLId": {
+                        "Ref": "webaclid"
+                    },
+                    "DefaultCacheBehavior": {
+                        "DefaultTTL": "86400",
+                        "MinTTL": "86400",
+                        "AllowedMethods": [
+                            "DELETE",
+                            "GET",
+                            "HEAD",
+                            "OPTIONS",
+                            "PATCH",
+                            "POST",
+                            "PUT"
+                        ],
+                        "MaxTTL": "31536000",
+                        "TargetOriginId": {
+                            "Ref": "albarn"
+                        },
+                        "ViewerProtocolPolicy": "allow-all",
+                        "ForwardedValues": {
+                            "QueryString": "false",
+                            "Cookies": {
+                                "Forward": "none"
+                            }
+                        }
+                    },
+                    "Origins": [
+                        {
+                            "CustomOriginConfig": {
+                                "HTTPPort": "80",
+                                "OriginProtocolPolicy": "match-viewer"
+                            },
+                            "DomainName": {
+                                "Ref": "albdnsname"
+                            },
+                            "Id": {
+                                "Ref": "albarn"
+                            }
+                        }
+                    ],
+                    "Enabled": "true"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "eb3eb730-9dbd-4e55-bb10-badbc7fee9a8"
+                }
+            }
+        }
+    },
+    "Parameters": {
+    	"webaclid":{
+    		"Type":"String"
+    	},
+        "albarn": {
+            "Type": "String"
+        },
+        "albdnsname": {
+            "Type": "String"
+        }
+    }
+}
