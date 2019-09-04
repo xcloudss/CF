@@ -1,0 +1,126 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "f9f95c7b-df20-432d-be8d-049574dad742": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 170
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "c406ca99-883b-45fa-94a2-08efb67cd1ab"
+                ]
+            },
+            "c406ca99-883b-45fa-94a2-08efb67cd1ab": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 150,
+                    "y": 180
+                },
+                "z": 0,
+                "embeds": []
+            }
+        }
+    },
+    "Resources": {
+        "asg1": {
+            "Type": "AWS::AutoScaling::AutoScalingGroup",
+            "Properties": {
+                "AutoScalingGroupName": "asg1",
+                "VPCZoneIdentifier": [
+                    {
+                        "Ref": "webnet1id"
+                    },
+                    {
+                        "Ref": "webnet2id"
+                    }
+                ],
+                "MaxSize": {
+                    "Ref": "maxsize"
+                },
+                "MinSize": {
+                    "Ref": "minsize"
+                },
+                "HealthCheckGracePeriod": "200",
+                "DesiredCapacity": "0",
+                "HealthCheckType": "ELB",
+                "TargetGroupARNs":[{"Ref":"targetgrouparn"}],
+                "LaunchConfigurationName": {
+                    "Ref": "config"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "f9f95c7b-df20-432d-be8d-049574dad742"
+                }
+            }
+        },
+        "config": {
+            "Type": "AWS::AutoScaling::LaunchConfiguration",
+            "Properties": {
+                "ImageId": "ami-035b3c7efe6d061d5",
+                "KeyName": {
+                    "Ref": "keyname"
+                },
+                "SecurityGroups": [
+                    {
+                        "Ref": "webgroupid"
+                    }
+                ],
+                "InstanceType": "t2.micro",
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "",
+                            [
+                                "#!/bin/bash\n",
+                                "yum install httpd -y\n",
+                                "chkconfig httpd on\n",
+                                "service httpd restart"
+                            ]
+                        ]
+                    }
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "c406ca99-883b-45fa-94a2-08efb67cd1ab"
+                }
+            }
+        }
+    },
+    "Parameters": {
+        "maxsize": {
+            "Type": "String",
+            "Default": "10"
+        },
+        "minsize": {
+            "Type": "String",
+            "Default": "0"
+        },
+        "webnet1id": {
+            "Type": "String"
+        },
+        "webnet2id": {
+            "Type": "String"
+        },
+        "webgroupid": {
+            "Type": "String"
+        },
+        "targetgrouparn": {
+            "Type": "String"
+        },
+        "keyname": {
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        }
+    }
+}
