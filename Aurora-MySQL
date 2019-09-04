@@ -1,0 +1,235 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "da835920-f425-4727-ad35-efcd5eed1679": {
+                "size": {
+                    "width": 480,
+                    "height": 200
+                },
+                "position": {
+                    "x": 210,
+                    "y": 80
+                },
+                "z": 0,
+                "embeds": [
+                    "52ac4113-dfd4-43e8-a3d5-29ed8748592d",
+                    "1a95b2cc-8a44-4502-8172-a87d67abb9d4",
+                    "337e9afc-b7ec-4580-b099-9ef3124d498c"
+                ]
+            },
+            "52ac4113-dfd4-43e8-a3d5-29ed8748592d": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 260,
+                    "y": 140
+                },
+                "z": 1,
+                "parent": "da835920-f425-4727-ad35-efcd5eed1679",
+                "embeds": [],
+                "iscontainedinside": [
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679"
+                ]
+            },
+            "337e9afc-b7ec-4580-b099-9ef3124d498c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 370,
+                    "y": 120
+                },
+                "z": 1,
+                "parent": "da835920-f425-4727-ad35-efcd5eed1679",
+                "embeds": [],
+                "isassociatedwith": [
+                    "52ac4113-dfd4-43e8-a3d5-29ed8748592d"
+                ],
+                "iscontainedinside": [
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679"
+                ]
+            },
+            "1a95b2cc-8a44-4502-8172-a87d67abb9d4": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 470,
+                    "y": 130
+                },
+                "z": 1,
+                "parent": "da835920-f425-4727-ad35-efcd5eed1679",
+                "embeds": [],
+                "isassociatedwith": [
+                    "52ac4113-dfd4-43e8-a3d5-29ed8748592d"
+                ],
+                "iscontainedinside": [
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679",
+                    "da835920-f425-4727-ad35-efcd5eed1679"
+                ]
+            }
+        }
+    },
+    "Resources": {
+        "rdsgroup": {
+            "Type": "AWS::RDS::DBSubnetGroup",
+            "Properties": {
+                "DBSubnetGroupDescription": "rdsgroup",
+                "DBSubnetGroupName": "rdsgroup",
+                "SubnetIds": [
+                    {
+                        "Ref": "dbnet1id"
+                    },
+                    {
+                        "Ref": "dbnet2id"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "rdsgroup"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "da835920-f425-4727-ad35-efcd5eed1679"
+                }
+            }
+        },
+        "dbcluster": {
+            "Type": "AWS::RDS::DBCluster",
+            "Properties": {
+                
+                "DatabaseName": "mysql1",
+                "MasterUsername": {
+                    "Ref": "dbuser"
+                },
+                "MasterUserPassword": {
+                    "Ref": "dbpass"
+                },
+                "Engine": "aurora",
+                "Port": "3306",
+                "VpcSecurityGroupIds": [
+                    {
+                        "Ref": "dbgroupid"
+                    }
+                ],
+                "DBClusterIdentifier": "dbcluster1",
+                "DBSubnetGroupName": {
+                    "Ref": "rdsgroup"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "52ac4113-dfd4-43e8-a3d5-29ed8748592d"
+                }
+            }
+        },
+        "db1": {
+            "Type": "AWS::RDS::DBInstance",
+            "Properties": {
+                "DBClusterIdentifier": {
+                    "Ref": "dbcluster"
+                },
+                "DBInstanceClass": "db.r4.large",
+                "DBInstanceIdentifier": "db1",
+                "Engine": "aurora",
+                "DBSubnetGroupName": {
+                    "Ref": "rdsgroup"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "337e9afc-b7ec-4580-b099-9ef3124d498c"
+                }
+            }
+        },
+        "db2": {
+            "Type": "AWS::RDS::DBInstance",
+            "Properties": {
+                "DBClusterIdentifier": {
+                    "Ref": "dbcluster"
+                },
+                "DBInstanceClass": "db.r4.large",
+                "DBInstanceIdentifier": "db2",
+                "Engine": "aurora",
+                "DBSubnetGroupName": {
+                    "Ref": "rdsgroup"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "1a95b2cc-8a44-4502-8172-a87d67abb9d4"
+                }
+            }
+        }
+    },
+    "Parameters": {
+        "dbuser": {
+            "Type": "String",
+            "Default": "dbadmin"
+        },
+        "dbpass": {
+            "Type": "String",
+            "Default": "Skills53."
+        },
+        "dbnet1id": {
+            "Type": "String"
+        },
+        "dbnet2id": {
+            "Type": "String"
+        },
+        "dbgroupid": {
+            "Type": "String"
+        }
+    }
+}
